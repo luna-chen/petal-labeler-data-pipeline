@@ -26,6 +26,7 @@ stages:
     - LabeledData/converted_paper.csv
 
   mturk:
+    runs-on: self-hosted
     cmd: python mturk/dummy.py
     outs:
       - mturk/test.csv
