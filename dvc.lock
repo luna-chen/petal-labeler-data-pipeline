@@ -79,3 +79,9 @@ stages:
     cmd:
     - python ./FinalFile/ge_validate.py
     - zip -r ./FinalFile/Reports/report_$(date +"%m-%d-%Y-%H_%M_%S").zip ./great_expectations/uncommitted/data_docs
+  mturk:
+    cmd: python mturk/dummy.py abc xyz 123
+    outs:
+    - path: mturk/test.csv
+      md5: 413f18697f9d955c4ffac1e06032721b
+      size: 34
