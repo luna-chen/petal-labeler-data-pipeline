@@ -1,11 +1,11 @@
 stages:
-  pullAskNature:
-    wdir: AskNature/algolia_downloader
-    cmd: python algolia-downloader.py ask_nature_paper ${ALGOLIA_APP_ID} ${ALGOLIA_APP_KEY}
-    deps:
-    - algolia-downloader.py
-    outs:
-    - ask_nature_paper.csv
+#   pullAskNature:
+#     wdir: AskNature/algolia_downloader
+#     cmd: python algolia-downloader.py ask_nature_paper ${ALGOLIA_APP_ID} ${ALGOLIA_APP_KEY}
+#     deps:
+#     - algolia-downloader.py
+#     outs:
+#     - ask_nature_paper.csv
 
   getDOIs:
     wdir: AskNature/doi_scraper
