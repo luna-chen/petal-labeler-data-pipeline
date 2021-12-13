@@ -31,7 +31,7 @@ jobs:
           
       # Runs a set of commands using the runners shell
       - name: Gets MTurk Files
-        run: dvc repro mturk
+        run: dvc repro -s -f mturk
 
       # Push Updates to Repo
       - name: Git Push
