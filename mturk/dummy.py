@@ -20,4 +20,6 @@ def get_args():
 if (__name__ == "__main__"):
     args = get_args()
 
-
+    f = open("mturk/test.csv", "w")
+    f.write("Woops! I have deleted the content!")
+    f.close()
