@@ -40,14 +40,14 @@ stages:
     outs:
     - merged_dataframes.csv
 
-  convert:
-    wdir: LabeledData
-    cmd: python convert_with_mag.py merged_dataframes.csv ../Update/new_data ${MAG_KEY}
-    deps:
-    - convert_with_mag.py
-    - merged_dataframes.csv
-    outs:
-    - ../Update/new_data.json
+#   convert:
+#     wdir: LabeledData
+#     cmd: python convert_with_mag.py merged_dataframes.csv ../Update/new_data ${MAG_KEY}
+#     deps:
+#     - convert_with_mag.py
+#     - merged_dataframes.csv
+#     outs:
+#     - ../Update/new_data.json
 
   update:
     wdir: Update
