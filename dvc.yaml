@@ -26,7 +26,7 @@ stages:
     - LabeledData/converted_paper.csv
 
   mturk:
-    cmd: python mturk/dummy.py
+    cmd: python mturk/dummy.py abc xyz 123
     outs:
       - mturk/test.csv
 
