@@ -176,6 +176,29 @@ If you have manually corrected the data and would like to re-run the validation 
 
 This pipeline does not currently generate a PR request automatically, this could be a point of interest to pursue in the future. For now, you will need to make a new branch from the data-collection-and-prep repository and replace the existing golden.json file with your modified one. When you make the PR to merge your branch into main, you will need to attach the validation report within the description so reviewers can download and review it. This should be straight-forward to review and is more of a confirmation rather than a proper review as the validation file should always be a 100% success. Whenever this is done, also be sure to update the golden.json file within FinalFile in this repository.
 
+## Setting Up a Self-Hosted Runner on Mac and Using it in the MTurk Workflow
+https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners
+- Follow the instructions on this link for "Adding a self-hosted runner to a repository"
+- When registering the runner, press enter for the default settings
+
+https://docs.github.com/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service
+- Configure the self-hosted runner as a service by following these instructions
+- You may have to stop the runner first
+
+https://docs.github.com/en/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow
+- Follow the instructions in this to use it in a workflow
+- Configure "runs-on" in the workflow file to say "runs-on: self-hosted"
+
+https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner
+- Enter "sudo mkdir -p /Users/runner/hostedtoolcache" to create the directory
+- Enter "export AGENT_TOOLSDIRECTORY=/Users/runner/hostedtoolcache" to set the AGENT_TOOLSDIRECTORY environment variable equal to the directory and enter "env" to check if the variable was added to the environment
+- Enter "ls -l" to check the current user and group that the runner belongs to
+- Enter "ls -ld /Users/runner/hostedtoolcache" to check the user and group of the specific directory if possible
+- Enter "sudo chown runner-user:runner-group /Users/runner/hostedtoolcache" to change the user and group of /Users/runner/hostedtoolcache to be the same as the runners
+
+Configuring the self-hosted runner to work with the MTurk Stage
+- In the dvc.yaml file, uncomment the pullAskNature and convert stages
+- Uncomment lines 22-25 if Python is already installed onto Mac because it is a self-hosted runner
 
 ## Future Works
 A few features that will either need to be added in, or should be added in are:
